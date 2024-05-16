@@ -1,18 +1,40 @@
-## Getting Started
+# Meu Projeto CRUD em Java com MySQL
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Este é um projeto simples que demonstra a implementação das operações CRUD (Create, Read, Update, Delete) em um banco de dados MySQL utilizando Java.
 
-## Folder Structure
+## Funcionalidades
 
-The workspace contains two folders by default, where:
+- Inserir novos registros no banco de dados.
+- Ler todos os registros existentes no banco de dados.
+- Atualizar registros existentes no banco de dados.
+- Excluir registros existentes no banco de dados.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Tecnologias Utilizadas
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- Java
+- MySQL
+- JDBC (Java Database Connectivity)
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Como Usar
 
-## Dependency Management
+1. Certifique-se de ter o MySQL instalado na sua máquina.
+2. Clone este repositório.
+3. Importe o projeto para a sua IDE Java preferida.
+4. Certifique-se de que o driver JDBC do MySQL está no classpath do seu projeto.
+5. Configure as informações de conexão com o banco de dados no arquivo `CRUDExample.java`.
+6. Execute o programa `CRUDExample.java`.
+7. Siga as instruções no terminal para interagir com o CRUD.
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Exemplo de Uso
+
+```java
+// Exemplo de inserção de um novo registro
+String insertQuery = "INSERT INTO exemplo (nome) VALUES ('Novo Registro')";
+statement.executeUpdate(insertQuery);
+
+// Exemplo de leitura de todos os registros
+String selectQuery = "SELECT * FROM exemplo";
+ResultSet resultSet = statement.executeQuery(selectQuery);
+while (resultSet.next()) {
+    System.out.println("ID: " + resultSet.getInt("id") + ", Nome: " + resultSet.getString("nome"));
+}
